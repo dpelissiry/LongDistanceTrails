@@ -1,0 +1,21 @@
+.trail {
+    fill: none;
+    stroke-width: 1;
+    display: block;
+    margin: auto;
+}
+
+.states {
+    fill: none;
+    stroke: white;
+    stroke-linejoin: round;
+    display: block;
+    margin: auto;
+}
+
+.counties {
+    fill: grey;
+    stroke: grey;
+    display: block;
+    margin: auto;
+}
