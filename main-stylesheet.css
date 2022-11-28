@@ -35,3 +35,8 @@ div.mapTooltip {
     border-radius: 8px;
     pointer-events: none;
 }
+
+.column {
+    float: left;
+    width: 25%;
+}
