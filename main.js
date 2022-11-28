@@ -69,7 +69,7 @@ function drawTrail(error, trail){
                             tooltip.style("opacity", 1)
                                     .style("left", (d3.event.pageX + 10) + "px")
                                     .style("top", (d3.event.pageY - 20) + "px");
-                            tooltip.html(trail.name + "<br>" + "Total Distance: " + trail.distance + " Meters<br>" + "Max Elevation: " + trail.maxElevation + " Meters");
+                            tooltip.html(trail.name + "<br>" + "Total Distance: " + trail.distance + " Miles<br>" + "Max Elevation: " + trail.maxElevation + " Meters");
                         }
             )
         .on("mouseout", function(d) {tooltip.style("opacity", 0);});
