@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T00:39:53Z",
   "name": "Wonderland Trail",
   "id": 19,
+  "distance": 96.09,
+  "maxElevation": 2064,
   "features": [
     {
       "type": "Feature",

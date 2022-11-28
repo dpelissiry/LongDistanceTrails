@@ -5,6 +5,8 @@
     "timestamp": "2022-06-30T00:59:11Z",
     "name": "Big SEKI Loop",
     "id": 5,
+    "distance": 145.24,
+    "maxElevation": 4009,
     "features": [
       {
         "type": "Feature",

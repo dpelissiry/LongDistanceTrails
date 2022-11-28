@@ -11,12 +11,20 @@ var svg = d3.select("svg"),
     height = +svg.attr("height");
 
 let projection = d3.geoAlbersUsa()
-                    .scale(1500)
-                    .translate([width / 2, height / 2]);
+                    .scale(1300)
+                    .translate([width / 2, height / 3.2]);
 
 let geoGenerator = d3.geoPath()
                         .pointRadius(0)
                         .projection(projection);
+
+let path = d3.geoPath();
+
+var zoom = d3.zoom().on("zoom", zoomed);
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "mapTooltip")
+    .style("opacity", 0);
 
 // draw us map
 d3.queue()
@@ -32,6 +40,7 @@ function drawUS(error, us){
         .data(topojson.feature(us, us.objects.counties).features)
         .enter().append("path")
         .attr("d", geoGenerator);
+
     // draw states
     svg.append("path")
         .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
@@ -48,8 +57,7 @@ for(let i in trails){
 
 function drawTrail(error, trail){
     if(error) throw error;
-    console.log("BRO")
-    console.log(trail);
+
     svg.append("g")
         .attr("class", "trail")
         .selectAll("path")
@@ -57,5 +65,19 @@ function drawTrail(error, trail){
         .enter().append("path")
         .attr("stroke", color(trail.id))
         .attr("d", geoGenerator)
-        .on("mouseover", function(d){console.log(d)});
+        .on("mouseover", function(d){
+                            tooltip.style("opacity", 1)
+                                    .style("left", (d3.event.pageX + 10) + "px")
+                                    .style("top", (d3.event.pageY - 20) + "px");
+                            tooltip.html(trail.name + "<br>" + "Total Distance: " + trail.distance + " Meters<br>" + "Max Elevation: " + trail.maxElevation + " Meters");
+                        }
+            )
+        .on("mouseout", function(d) {tooltip.style("opacity", 0);});
+}
+
+svg.call(zoom);
+function zoomed(){
+    svg.selectAll(".counties").attr("transform", d3.event.transform);
+    svg.selectAll(".states").attr("transform", d3.event.transform);
+    svg.selectAll(".trail").attr("transform", d3.event.transform);
 }

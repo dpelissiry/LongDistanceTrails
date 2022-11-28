@@ -5,6 +5,8 @@
     "timestamp": "2022-06-30T23:37:22Z",
     "name": "Benton MacKaye Trail",
     "id": 4,
+    "distance": 278.41,
+    "maxElevation": 1784,
     "features": [
       {
         "type": "Feature",

@@ -5,6 +5,8 @@
     "timestamp": "2022-06-30T23:40:23Z",
     "name": "Batona Trail",
     "id": 3,
+    "distance": 51.30,
+    "maxElevation": 59,
     "features": [
       {
         "type": "Feature",

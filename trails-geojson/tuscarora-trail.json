@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T23:11:09Z",
   "name": "Tuscarora Trail",
   "id": 18,
+  "distance": 233.35,
+  "maxElevation": 1041,
   "features": [
     {
       "type": "Feature",

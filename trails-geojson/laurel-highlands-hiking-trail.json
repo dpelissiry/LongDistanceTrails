@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T23:51:36Z",
   "name": "Laurel Highlands Hiking Trail",
   "id": 9,
+  "distance": 64.75,
+  "maxElevation": 913,
   "features": [
     {
       "type": "Feature",
