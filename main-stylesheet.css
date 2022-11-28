@@ -3,6 +3,7 @@
     stroke-width: 1;
     display: block;
     margin: auto;
+    stroke-linejoin: round;
 }
 
 .states {

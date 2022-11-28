@@ -18,6 +18,8 @@ let geoGenerator = d3.geoPath()
                         .pointRadius(0)
                         .projection(projection);
 
+var zoom = d3.zoom().on("zoom", zoomed);
+
 // draw us map
 d3.queue()
     .defer(d3.json, "./us-10m.json")
@@ -48,8 +50,7 @@ for(let i in trails){
 
 function drawTrail(error, trail){
     if(error) throw error;
-    console.log("BRO")
-    console.log(trail);
+
     svg.append("g")
         .attr("class", "trail")
         .selectAll("path")
@@ -57,5 +58,12 @@ function drawTrail(error, trail){
         .enter().append("path")
         .attr("stroke", color(trail.id))
         .attr("d", geoGenerator)
-        .on("mouseover", function(d){console.log(d)});
+        .on("mouseover", function(d){console.log(trail.name)});
+}
+
+svg.call(zoom);
+function zoomed(){
+    svg.selectAll(".counties").attr("transform", d3.event.transform);
+    svg.selectAll(".states").attr("transform", d3.event.transform);
+    svg.selectAll(".trail").attr("transform", d3.event.transform);
 }
