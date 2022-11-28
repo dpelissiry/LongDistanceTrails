@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T00:54:16Z",
   "name": "John Muir Trail",
   "id": 8,
+  "distance": 203.05,
+  "maxElevation": 4411,
   "features": [
     {
       "type": "Feature",

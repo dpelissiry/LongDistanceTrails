@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T01:06:17Z",
   "name": "Long Trail",
   "id": 11,
+  "distance": 245.43,
+  "maxElevation": 1329,
   "features": [
     {
       "type": "Feature",

@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T01:04:21Z",
   "name": "Northville Lake Placid Trail",
   "id": 14,
+  "distance": 132.11,
+  "maxElevation": 926,
   "features": [
     {
       "type": "Feature",

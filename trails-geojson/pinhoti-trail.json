@@ -5,6 +5,8 @@
   "timestamp": "2022-06-30T23:17:04Z",
   "name": "Pinhoti Trail",
   "id": 16,
+  "distance": 325.99,
+  "maxElevation": 973,
   "features": [
     {
       "type": "Feature",
