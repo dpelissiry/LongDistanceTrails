@@ -8,21 +8,30 @@ let trails = ["north-country-trail.json", "pacific-crest-trail.json", "appalachi
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+// this code was taken from a StackOverflow response
+// which can be found here https://stackoverflow.com/questions/16265123/resize-svg-when-window-is-resized-in-d3-js
+d3.select("div#map")
+    .append("div")
+    .classed("svg-container", true) 
+    .append("svg")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 1020 960")
+    .classed("svg-content-responsive", true)
+
+var svg = d3.select("svg");
+var width = $("svg").parent().width();
 
 let projection = d3.geoAlbersUsa()
-                    .scale(1550)
-                    .translate([width / 1.8, height / 2]);
+                    .scale(1400)
+                    .translate([width / 2.25, width / 2.65]);
 
 let path = d3.geoPath()
                 .pointRadius(0)
                 .projection(projection);
 
 var zoom = d3.zoom()
-    .scaleExtent([1, 10])
-    .translateExtent([[-50, -20], [1070, 980]])
+    .scaleExtent([1, 12])
+    .translateExtent([[-90, -25], [width + 90, width - 40]])
     .on("zoom", zoomed);
 
 var tooltip = d3.select("body")

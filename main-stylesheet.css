@@ -20,7 +20,21 @@ div.mapTooltip {
     line-height: 16px;
 }
 
-.bottom-columns {
-    float: left;
-    width: 25%;
+/* this code was taken from a StackOverflow response
+   which can be found here https://stackoverflow.com/questions/16265123/resize-svg-when-window-is-resized-in-d3-js */
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
 }
