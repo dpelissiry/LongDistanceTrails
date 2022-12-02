@@ -1,10 +1,10 @@
 var TITLE = 'US Long Distance Trails Comparison Chart';
 
 // x-axis label and label in tooltip
-var X_AXIS = 'Distance';
+var X_AXIS = 'Distance (miles)';
 
 // y-axis label and label in tooltip
-var Y_AXIS = 'Elevation'; 
+var Y_AXIS = 'Elevation (meters)'; 
 
 // Should y-axis start from 0? `true` or `false`
 var BEGIN_AT_ZERO = false;
