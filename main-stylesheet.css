@@ -11,13 +11,13 @@ div.mapTooltip {
     text-align: center;
     white-space: break-spaces;    
     width: 200px;
-    height: 55px;
+    height: 70px;
     font: 14px sans-serif;
     background: lightsteelblue;
     border: 14px;
     border-radius: 8px;
     pointer-events: none;
-    line-height: 16px;
+    line-height: 17px;
 }
 
 /* this code was taken from a StackOverflow response
