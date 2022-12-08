@@ -21,20 +21,19 @@ for(let i in trailNames){
 // this code was taken from a StackOverflow response
 // which can be found here https://stackoverflow.com/questions/16265123/resize-svg-when-window-is-resized-in-d3-js
 d3.select("div#map")
-    .append("div")
-    .classed("svg-container", true) 
     .append("svg")
     .attr("id", "map")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 1020 960")
-    .classed("svg-content-responsive", true)
+    .classed("svg-content-responsive", true);
 
 var mapSvg = d3.select("svg#map");
 var mapWidth = $("svg#map").parent().width();
 
+mapSvg.attr("style", "width: " + mapWidth + "px; height: 900px;");
+
 let projection = d3.geoAlbersUsa()
-                    .scale(1400)
-                    .translate([mapWidth / 2.25, mapWidth / 2.65]);
+                    .scale((mapWidth + 900) / 1.8)
+                    .translate([mapWidth / 2, 900/1.6]);
 
 let path = d3.geoPath()
                 .pointRadius(0)
@@ -42,7 +41,7 @@ let path = d3.geoPath()
 
 var mapZoom = d3.zoom()
     .scaleExtent([1, 12])
-    .translateExtent([[-90, -25], [mapWidth + 90, mapWidth - 40]])
+    .translateExtent([[-80, -15], [mapWidth + 80, 900 + 15]])
     .on("zoom", mapZoomed);
 
 var tooltip = d3.select("body")
@@ -50,8 +49,12 @@ var tooltip = d3.select("body")
     .attr("class", "mapTooltip")
     .style("opacity", 0);
 
+d3.queue()
+    .defer(d3.json, "./USA.json")
+    .await(drawUS)
+
 // ACTUALLY DRAWING THE MAP
-d3.json("./USA.json", function(error, us){
+function drawUS(error, us){
     if(error) throw error;
     mapSvg.append("g")
         .attr("class", "USA")
@@ -62,7 +65,7 @@ d3.json("./USA.json", function(error, us){
         .attr("stroke-linejoin", "round")
         .attr("fill", "none")
         .attr("d", path);
-});
+}
 
 // ACTUALLY DRAWING THE TRAILS
 for(let i in trails){

@@ -29,11 +29,11 @@ div.mapTooltip {
     width: 100%;
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .svg-content-responsive {
-    display: inline-block;
+    display: block;
     position: absolute;
     top: 10px;
     left: 0;
