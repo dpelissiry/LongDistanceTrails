@@ -31,7 +31,7 @@ var mapWidth = $("svg#map").parent().width();
 
 mapSvg.attr("style", "width: " + mapWidth + "px; height: 900px;");
 
-let scale = mapWidth > 900 ? mapWidth + 200 : (mapWidth + 900) / 1.8;
+let scale = mapWidth > 900 ? mapWidth + (mapWidth / 3) : (mapWidth + 900) / 1.8;
 let projection = d3.geoAlbersUsa()
                     .scale(scale)
                     .translate([mapWidth / 2, 900/1.6]);
